@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: java-webapp
-          image: sthuthi22/java-webapp:latest
+          image: sthuthi22/java-webapp:v1   # Use exact version   
+          imagePullPolicy: Always           # Always pull image from DockerHub
           ports:
             - containerPort: 8082
 ---
@@ -30,6 +31,6 @@ spec:
     app: java-webapp
   ports:
     - protocol: TCP
-      port: 8082       # service port
-      targetPort: 8082 # container port
-      nodePort: 30082  # external access port
+      port: 8082
+      targetPort: 8082
+      nodePort: 30082
